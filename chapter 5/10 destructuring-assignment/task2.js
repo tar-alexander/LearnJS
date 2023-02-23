@@ -21,4 +21,18 @@ function topSalary(salaries) {
     let [topUser = null, maxSalary = 0] = array[0];
 
     return topUser;
- }
+}
+
+function topSalary(salaries) {
+    let max = 0;
+    let topUser = null;
+
+    for (const [user, salary] of Object.entries(salaries)){
+      if (salary > max) {
+        topUser = user;
+        max = salary;
+      }
+    };
+
+    return topUser;
+}
