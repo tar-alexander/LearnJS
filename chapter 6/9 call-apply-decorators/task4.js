@@ -15,7 +15,7 @@ function throttle(f, ms) {
       setTimeout( function() {
         cooldown = false;
         if (args) {
-          wrapper.apply(this, args);
+          wrapper.apply(savedThis, args);
           savedThis = args = null;
         };
       }, ms);
