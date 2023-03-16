@@ -27,6 +27,7 @@
     createTree(container, data); // создаёт дерево в контейнере
 
     function createTree(container, object) {
+      if (!Object.keys(object).length) return;
       let list = document.createElement("ul");
 
       for (let key in object) {
