@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+<body>
+
+  <h1>Создать список</h1>
+  <ul id="list"></ul>
+
+  <script>
+    let list = document.getElementById("list");
+    let array = [];
+
+    while (true) {
+      let text = prompt("Введите текст для элемента списка");
+      if (text) {
+        let elem = document.createElement('li');
+        elem.textContent = text;
+        array.push(elem);
+      } else break;
+    }
+    
+    list.append(...array);
+  </script>
+
+</body>
+</html>
