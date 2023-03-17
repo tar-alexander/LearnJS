@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+
+    td,
+    th {
+      border: 1px solid black;
+      padding: 3px;
+      text-align: center;
+    }
+
+    th {
+      font-weight: bold;
+      background-color: #E6E6E6;
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <div id="calendar"></div>
+
+  <script>
+    function createCalendar(elem, year, month) {
+      let table = document.createElement("table");
+      table.append(createHeader());
+      let date = new Date(year, month -1);
+      let currentMonth = date.getMonth();
+      table.append(createRow());
+      
+      while (date.getMonth() == currentMonth) {
+        if (date.getDay() - 1 == -1) {
+          table.rows[table.rows.length-1].cells[6].innerHTML = date.getDate();
+        } else {
+          table.rows[table.rows.length-1].cells[date.getDay() - 1].innerHTML = date.getDate();
+        }
+        
+        date.setDate(date.getDate() + 1);
+        
+        if (date.getDay() == 1) {
+          table.append(createRow());
+        }
+      }
+      
+      elem.append(table);
+    }
+
+    function createHeader() {
+      let tr = document.createElement("tr");
+      let array = [];
+      for (let i = 0; i < 7; i++) {
+        array.push(document.createElement("th"));
+      }
+      array[0].innerHTML = "пн";
+      array[1].innerHTML = "вт";
+      array[2].innerHTML = "ср";
+      array[3].innerHTML = "чт";
+      array[4].innerHTML = "пт";
+      array[5].innerHTML = "сб";
+      array[6].innerHTML = "вс";
+      tr.append(...array);
+      return tr;
+    }
+
+    function createRow() {
+      let week = document.createElement("tr");
+      for (let j = 0; j < 7; j++) {
+        week.append(document.createElement("td"));
+      }
+      return week;
+    }
+
+    createCalendar(calendar, 2012, 12);
+  </script>
+
+</body>
+</html>
