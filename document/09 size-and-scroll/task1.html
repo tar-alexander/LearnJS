@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!-- saved from url=(0056)https://ru.js.cx/article/size-and-scroll/cssWidthScroll/ -->
+<html>
+<input type="hidden" id="__yoroi_connector_api_injected_type" value="prod">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head>
+<body>
+  <div id="elem" style="overflow-y:scroll;width:300px;height:200px;border:1px solid black">
+    текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст
+    текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст
+    текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст
+  </div>
+  <br>
+
+  <button onclick="addValue(document.getElementById('elem'))" id="button">scrollBottom</button>
+</body>
+<script type="text/javascript">
+	function scrollBottom(elem) {
+		return Math.round(elem.scrollHeight - elem.scrollTop - elem.clientHeight);
+	}
+
+	function addValue(elem) {
+		let value = document.getElementById('value');
+		if (!value) {
+			value = document.createElement("div");
+			value.id = "value"
+		} 
+		value.innerHTML = `ScrollBottom: ${scrollBottom(elem)}`;
+		button.before(value);
+	}
+</script>
+</html>

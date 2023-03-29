@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!-- saved from url=(0056)https://ru.js.cx/article/size-and-scroll/cssWidthScroll/ -->
+<html>
+<input type="hidden" id="__yoroi_connector_api_injected_type" value="prod">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head>
+<body>
+  <button id="button">scrollWidth</button>
+</body>
+<script type="text/javascript">
+	let div = document.createElement('div');
+
+	div.style.overflowY = 'scroll';
+	div.style.width = '50px';
+	div.style.height = '50px';
+
+	// мы должны вставить элемент в документ, иначе размеры будут равны 0
+	button.before(div);
+
+	function scrollWidth(elem) {
+		return elem.offsetWidth - elem.clientWidth;
+	}
+
+	button.onclick = function() {
+		let value = document.getElementById('value');
+		if (!value) {
+			value = document.createElement("div");
+			value.id = "value"
+		} 
+		value.innerHTML = `Scroll width: ${scrollWidth(div)}`;
+		div.after(value);
+	}
+</script>
+</html>

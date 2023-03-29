@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <style>
+    #field {
+      width: 200px;
+      border: 10px groove black;
+      background-color: #00FF00;
+      position: relative;
+    }
+
+    #ball {
+      position: absolute;
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <div id="field">
+    <img src="https://en.js.cx/clipart/ball.svg" id="ball" width="40" height="40"> . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+  </div>
+
+
+</body>
+<script>
+  let field = document.getElementById("field");
+  let x = field.clientWidth / 2;
+  let y = field.clientHeight / 2;
+
+  let elem = document.getElementById("ball");
+  let width = elem.offsetWidth / 2;
+  let height = elem.offsetHeight / 2;
+
+  ball.style.left = (x - width) + "px";
+  ball.style.top = (y - height) + "px";
+</script>
+
+</html>
